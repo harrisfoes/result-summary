@@ -1,0 +1,276 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* RESET DONE */
+
+:root {
+  --lightred: hsl(0, 100%, 67%);
+  --orangeyellow: hsl(39, 100%, 56%);
+  --greenteal: hsl(166, 100%, 37%);
+  --cobaltblue: hsl(234, 85%, 45%);
+
+  --lightredbg: hsl(0, 100%, 67%, 0.1);
+  --orangeyellowbg: hsl(39, 100%, 56%, 0.1);
+  --greentealbg: hsl(166, 100%, 37%, 0.1);
+  --cobaltbluebg: hsl(234, 85%, 45%, 0.1);
+
+  /*background*/
+  --lightslateblue: hsl(252, 100%, 67%);
+  --lightroyalblue: hsl(241, 81%, 54%);
+
+  /*circle*/
+  --violetblue: hsla(256, 72%, 46%, 1);
+  --persianblue: hsla(241, 72%, 46%, 0);
+
+  --neutralwhite: hsl(0, 0%, 100%);
+  --neutralpaleblue: hsl(221, 100%, 96%);
+  --nlightlavender: hsl(241, 100%, 89%);
+  --ndarkgrayblue: hsl(224, 30%, 27%);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 18px;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 40rem;
+
+  text-align: center;
+  box-shadow: var(--nlightlavender) 0px 7px 29px 0px;
+  border-radius: 20px;
+  /*box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;*/
+}
+
+.column {
+  width: 50%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 520px) {
+  body {
+    justify-content: flex-start;
+    max-height: 100vh;
+  }
+  .main {
+    box-shadow: none !important;
+  }
+  .column {
+    min-width: 100%;
+  }
+  .result {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+}
+
+.result {
+  background: linear-gradient(
+    to bottom,
+    var(--lightslateblue),
+    var(--lightroyalblue)
+  );
+  border-radius: 25px;
+}
+
+.result h3 {
+  color: var(--nlightlavender);
+  padding: 12px;
+}
+
+.result h2 {
+  color: var(--neutralwhite);
+}
+
+.result .message {
+  color: var(--nlightlavender);
+  margin: 18px;
+}
+
+.result-score {
+  background: linear-gradient(to top, var(--persianblue), var(--violetblue));
+  border-radius: 100%;
+  width: 8rem;
+  height: 8rem;
+  padding: 8px;
+  margin: 12px;
+}
+
+.total {
+  color: var(--nlightlavender);
+}
+
+.result .score {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--neutralwhite);
+}
+
+.summary {
+  background-color: var(--neutralwhite);
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.summary h3 {
+  text-align: left;
+  width: 100%;
+  margin-left: 12%;
+  margin-bottom: 4px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 4px;
+  font-weight: 600;
+  color: slategray;
+}
+
+.numer {
+  color: var(--ndarkgrayblue);
+}
+
+.statname {
+  display: flex;
+  gap: 4px;
+}
+
+#reaction {
+  background-color: var(--lightredbg);
+}
+
+#reaction .statname {
+  color: var(--lightred);
+}
+
+#memory {
+  background-color: var(--orangeyellowbg);
+}
+
+#memory .statname {
+  color: var(--orangeyellow);
+}
+
+#verbal {
+  background-color: var(--greentealbg);
+}
+
+#verbal .statname {
+  color: var(--greenteal);
+}
+
+#visual {
+  background-color: var(--cobaltbluebg);
+}
+
+#visual .statname {
+  color: var(--cobaltblue);
+}
+
+button {
+  margin-top: 12px;
+  width: 90%;
+  border-radius: 20px;
+  border: 0;
+  background-color: var(--ndarkgrayblue);
+  color: var(--neutralwhite);
+  padding: 8px;
+}
+
+button:hover {
+  color: var(--ndarkgrayblue);
+  background-color: var(--nlightlavender);
+}
+
+button:active {
+  background-color: var(--violetblue);
+  color: var(--nlightlavender);
+}
